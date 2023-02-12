@@ -11,7 +11,7 @@ def send_whatsapp_message(message):
 
     payload = {
         "From": f"whatsapp:{+14155238886}",
-        "To": f"whatsapp:{+905053043471}",
+        "To": f"whatsapp:{+XXXXXXXXXXXX}",
         "Body": "Yeni Bir Deprem Oldu"
     }
 
@@ -25,7 +25,7 @@ def send_whatsapp_message(message):
 
 
 def check_for_new_posts(previous_posts_hash):
-    # Get the HTML content of the website
+   
     response = requests.get("http://www.koeri.boun.edu.tr/scripts/lst2.asp")
     html_content = response.text
 
@@ -34,7 +34,7 @@ def check_for_new_posts(previous_posts_hash):
     if current_hash != previous_posts_hash:
 
 
-    # Find the <pre> tag and get the last line
+   
        start_index = html_content.index("<pre>")
        end_index = html_content.index("</pre>")
        pre_content = html_content[start_index + 5: end_index]
@@ -50,4 +50,4 @@ def check_for_new_posts(previous_posts_hash):
 previous_posts_hash = ""
 while True:
     previous_posts_hash = check_for_new_posts(previous_posts_hash)
-    time.sleep(60)  # wait for 60 seconds before checking again
+    time.sleep(60)  
